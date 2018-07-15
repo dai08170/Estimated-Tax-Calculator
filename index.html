@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Estimated Tax Calculator</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="/css/sb-admin.css" rel="stylesheet">
+  <link href="/css/d3styles.css" rel="stylesheet" media="screen" title="no title" charset="utf-8">
+
+  <!-- Custom Fonts -->
+  <link href="/css/ionicons.min.css" rel="stylesheet" type="text/css">
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="http://www.pacifico.tax/" target="_blank"><img src="/pacifico-logo-small.png" style="width:33px;height:27px;" align="left"> Pacifico Tax</a>
+      </div>
+
+      <ul class="nav navbar-nav">
+        <li><a href="http://www.pacifico.tax/estimated-tax-calculator" target="_blank">About</a></li>
+        <li><a href="http://www.pacifico.tax/tax-return-preparation-guidelines/payments/" target="_blank">Payments</a></li>
+        <li><a href="http://www.pacifico.tax/terms/" target="_blank">Terms</a></li>
+      </ul>
+
+    </div>
+
+  </nav>
+
+  <!-- Tax Calculator -->
+  <div id="page-wrapper">
+
+      <div class="row">
+
+        <!-- Start of Data Input Column -->
+        <div class="column">
+
+          <div class="col-xs-6" align="left" style="text-align:left">
+
+            <h1 class="chart-title">
+              Estimated Tax Calculator <small>Form 1040</small>
+            </h1>
+
+          &nbsp;
+
+          <div>For quick estimate enter your income, deduction, and tax payment year-to-date amounts.</div>
+
+          &nbsp;
+
+          <!-- Filing Status Radio Buttons -->
+          <div class="form-group">
+            <label class="control-label col-xs-2">Filing Status:</label>
+              <label class="radio-inline"><input type="radio" name="filingStatus" id="form1040line1" checked>Single</label>
+              <label class="radio-inline"><input type="radio" name="filingStatus" id="form1040line2">Married Joint</label>
+              <label class="radio-inline"><input type="radio" name="filingStatus" id="form1040line3">Married Separate</label>
+              <label class="radio-inline"><input type="radio" name="filingStatus" id="form1040line4">Head of Household</label>
+              <label class="radio-inline"><input type="radio" name="filingStatus" id="form1040line5">Widower</label>
+          </div>
+
+          <h3>Income</h3>
+
+          <!-- Form 1040, Line 7: Wages -->
+          <div class="form-group">
+            <label class="control-label col-xs-2"> Wages</label>
+            <div class="col-xs-10">
+                <input type="text" class="form-control" id="form1040line7" placeholder="Form 1040, Line 7 (Assumes Payroll Withholding)">
+            </div>
+          </div>
+
+          &nbsp;
+
+          <!-- Form 1040, Line 9: Dividneds -->
+          <div class="form-group">
+            <label class="control-label col-xs-2"> Dividends</label>
+            <div class="col-xs-10">
+                <input type="text" class="form-control" id="form1040line9" placeholder="Form 1040, Line 9 (Ordinary and Qualfified Dividends)">
+            </div>
+          </div>
+
+          &nbsp;
+
+          <!-- Form 1040, Line 12: Net Self-Employment Income -->
+          <div class="form-group">
+            <label class="control-label col-xs-2">Self-Employment</label>
+            <div class="col-xs-10">
+                <input type="text" class="form-control" id="form1040line12" placeholder="Form 1040, Line 12 (Schedule C Income Subject to Self-Employment Tax)">
+            </div>
+          </div>
+
+          &nbsp;
+
+          <!-- Form 1040, Line 13: Capital Gain -->
+          <div class="form-group">
+            <label class="control-label col-xs-2">Capital Gain</label>
+            <div class="col-xs-10">
+                <input type="text" class="form-control" id="form1040line13" placeholder="Form 1040, Line 13 (Short and Long Term Capital Gains)">
+            </div>
+          </div>
+
+          &nbsp;
+
+          <!-- Form 1040, Line 17: Rental, Partnership, and S-Corporation Income -->
+          <div class="form-group">
+            <label class="control-label col-xs-2">Flow-Through Income</label>
+            <div class="col-xs-10">
+                <input type="text" class="form-control" id="form1040line17" placeholder="Form 1040, Line 17 (Rental, S-Corp/Partnership, and Passive Income)">
+            </div>
+          </div>
+
+          &nbsp;
+
+          <!-- Form 1040, All Other Income -->
+          <div class="form-group">
+            <label class="control-label col-xs-2">All Other Income</label>
+            <div class="col-xs-10">
+                <input type="text" class="form-control" id="form1040AllOtherIncome" placeholder="All Other Income">
+            </div>
+          </div>
+
+          &nbsp;
+
+          <h3>Deductions</h3>
+
+          &nbsp;
+
+          <!-- Form 1040, Line: 36: AGI Deductions -->
+          <div class="form-group">
+            <label class="control-label col-xs-2">AGI Deductions</label>
+            <div class="col-xs-10">
+                <input type="text" class="form-control" id="form1040line36" placeholder="Form 1040, Line 36">
+            </div>
+          </div>
+
+          &nbsp;
+
+          <!-- Schedule A: Itemized Deductions -->
+          <div class="form-group">
+            <label class="control-label col-xs-2">Itemized Deductions</label>
+            <div class="col-xs-10">
+                <input type="text" class="form-control" id="ItemizedDeductions" placeholder="Itemized Deductions">
+            </div>
+          </div>
+
+          &nbsp;
+
+          <!-- Calculate Tax Button & Alert -->
+          <div class="alert alert-info" role="alert">
+            <div style="padding: 15px 15px;" align="center">
+              <button class="btn-lg btn-primary" onclick="pieCalculator()"><i class="ion-ios-pie"></i> Calculate</button>
+            </div>
+
+            The estiamted calculation of tax computes amounts owed based on 2018 Income Tax Rates, and does not take into effect special rates for Long Term Capital Gains, Qualified Dividends, nor additional taxes such as the Net Investment Income tax or Alternative Minimum Tax. The results of the calculator do not guarantee your final tax liability.
+
+          </div>
+
+          &nbsp;
+
+          <h3>Estimated Tax</h3>
+
+          &nbsp;
+
+          <!-- Start of Estimated Tax Calculation -->
+          <ul class="list-group">
+            <li class="list-group-item">Total Income: <strong>$0</strong></li>
+            <li class="list-group-item">Total Dedictions: <strong>$0</strong></li>
+            <li class="list-group-item">Taxable Income: <strong>$0</strong></li>
+            <li class="list-group-item">Tax: <strong>$0</strong></li>
+          </ul>
+          <!-- End of Estimated Tax Calculation -->
+
+          &nbsp;
+
+          </div>
+
+        </div>
+        <!-- End of Input column -->
+
+        <!-- Start of Data Display column -->
+        <div class="column">
+
+          <div class="col-xs-6" align="center" style="text-align:center">
+            <h2 align="center">
+               Federal Tax Summary
+            </h2>
+            &nbsp;
+            <div>Percentage and Tax Bracket summary of Federal Form 1040, based on current rates.</div>
+            &nbsp;
+          </div>
+
+          <!-- Display Pie Chart -->
+          <div class="col-lg-6">
+            <div class="widget-chart darker">
+              <div class="widget-chart-content">
+                <h4 class="chart-title">
+                  Federal Tax Percentage
+                  <small>Year to Date Visualization of Income, Deductions, and Tax</small>
+                </h4>
+                  <div class="vis percentage"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Display Horiztonal Bar Graph -->
+          <div class="col-lg-6">
+            <div class="widget-chart darker">
+              <div class="widget-chart-content">
+                <h4 class="chart-title">
+                  Federal Tax Bracket
+                  <small>Visualization of Tax Bracket</small>
+                </h4>
+                  <div class="vis bracket"></div> <!-- NEED TO CREATE -->
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- End of Data Display column -->
+
+      </div>
+      <!-- End of Row -->
+
+  </div>
+  <!-- End of #page-wrapper -->
+
+  <!-- D3 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+  <!-- jQuery -->
+  <script src="/js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="/js/bootstrap.collapse.min.js"></script>
+
+  <!-- "vis calc/pie" classes: piecharts with D3-->
+  <script src="/js/d3.tip.js"></script>
+  <script src="/loading-examples/pie-loading-percentage.js"></script>
+
+  <!-- Tax Calculation -->
+  <script src="/calculator/calculate-tax.js"></script>
+
+  <!-- Draw Pie Chart for Calculator-->
+  <script src="/calculator/pie-calculator.js"></script>
+
+
+</body>
+
+</html>
