@@ -29,19 +29,12 @@
 
   <!-- Navigation Bar -->
   <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="http://www.pacifico.tax/" target="_blank"><img src="/pacifico-logo-small.png" style="width:33px;height:27px;" align="left"> Pacifico Tax</a>
-      </div>
-
       <ul class="nav navbar-nav">
+        <a class="navbar-brand" href="http://www.pacifico.tax/" target="_blank">PacificoTax</a>
         <li><a href="http://www.pacifico.tax/estimated-tax-calculator" target="_blank">About</a></li>
         <li><a href="http://www.pacifico.tax/tax-return-preparation-guidelines/payments/" target="_blank">Payments</a></li>
         <li><a href="http://www.pacifico.tax/terms/" target="_blank">Terms</a></li>
       </ul>
-
-    </div>
-
   </nav>
 
   <!-- Tax Calculator -->
@@ -60,10 +53,6 @@
 
           &nbsp;
 
-          <div>For quick estimate enter your income, deduction, and tax payment year-to-date amounts.</div>
-
-          &nbsp;
-
           <!-- Filing Status Radio Buttons -->
           <div class="form-group">
             <label class="control-label col-xs-2">Filing Status:</label>
@@ -74,13 +63,13 @@
               <label class="radio-inline"><input type="radio" name="filingStatus" id="form1040line5">Widower</label>
           </div>
 
-          <h3>Income</h3>
+          <h4>Income</h4>
 
           <!-- Form 1040, Line 7: Wages -->
           <div class="form-group">
-            <label class="control-label col-xs-2"> Wages</label>
+            <label class="control-label col-xs-2">Wages</label>
             <div class="col-xs-10">
-                <input type="text" class="form-control" id="form1040line7" placeholder="Form 1040, Line 7 (Assumes Payroll Withholding)">
+                <input type="text" class="form-control" id="form1040line7" placeholder="Gross Wages (Assumes Payroll Withholding)">
             </div>
           </div>
 
@@ -88,9 +77,9 @@
 
           <!-- Form 1040, Line 9: Dividneds -->
           <div class="form-group">
-            <label class="control-label col-xs-2"> Dividends</label>
+            <label class="control-label col-xs-2">Dividends</label>
             <div class="col-xs-10">
-                <input type="text" class="form-control" id="form1040line9" placeholder="Form 1040, Line 9 (Ordinary and Qualfified Dividends)">
+                <input type="text" class="form-control" id="form1040line9" placeholder="Ordinary and Qualified Dividends">
             </div>
           </div>
 
@@ -100,7 +89,7 @@
           <div class="form-group">
             <label class="control-label col-xs-2">Self-Employment</label>
             <div class="col-xs-10">
-                <input type="text" class="form-control" id="form1040line12" placeholder="Form 1040, Line 12 (Schedule C Income Subject to Self-Employment Tax)">
+                <input type="text" class="form-control" id="form1040line12" placeholder="Net Schedule C Income Subject to Self-Employment Tax">
             </div>
           </div>
 
@@ -110,7 +99,7 @@
           <div class="form-group">
             <label class="control-label col-xs-2">Capital Gain</label>
             <div class="col-xs-10">
-                <input type="text" class="form-control" id="form1040line13" placeholder="Form 1040, Line 13 (Short and Long Term Capital Gains)">
+                <input type="text" class="form-control" id="form1040line13" placeholder="Short and Long Term Capital Gains">
             </div>
           </div>
 
@@ -118,9 +107,9 @@
 
           <!-- Form 1040, Line 17: Rental, Partnership, and S-Corporation Income -->
           <div class="form-group">
-            <label class="control-label col-xs-2">Flow-Through Income</label>
+            <label class="control-label col-xs-2">Flow-Through</label>
             <div class="col-xs-10">
-                <input type="text" class="form-control" id="form1040line17" placeholder="Form 1040, Line 17 (Rental, S-Corp/Partnership, and Passive Income)">
+                <input type="text" class="form-control" id="form1040line17" placeholder="Rental, S-Corp/Partnership, and Passive Income">
             </div>
           </div>
 
@@ -144,7 +133,7 @@
           <div class="form-group">
             <label class="control-label col-xs-2">AGI Deductions</label>
             <div class="col-xs-10">
-                <input type="text" class="form-control" id="form1040line36" placeholder="Form 1040, Line 36">
+                <input type="text" class="form-control" id="form1040line36" placeholder="Total Adjusted Gross Income Deductions">
             </div>
           </div>
 
@@ -160,32 +149,9 @@
 
           &nbsp;
 
-          <!-- Calculate Tax Button & Alert -->
-          <div class="alert alert-info" role="alert">
-            <div style="padding: 15px 15px;" align="center">
-              <button class="btn-lg btn-primary" onclick="pieCalculator()"><i class="ion-ios-pie"></i> Calculate</button>
-            </div>
-
-            The estiamted calculation of tax computes amounts owed based on 2018 Income Tax Rates, and does not take into effect special rates for Long Term Capital Gains, Qualified Dividends, nor additional taxes such as the Net Investment Income tax or Alternative Minimum Tax. The results of the calculator do not guarantee your final tax liability.
-
+          <div style="padding: 15px 15px;" align="center">
+            <button class="btn-lg btn-primary" onclick="pieCalculator()"><i class="ion-flash"></i> Calculate</button>
           </div>
-
-          &nbsp;
-
-          <h3>Estimated Tax</h3>
-
-          &nbsp;
-
-          <!-- Start of Estimated Tax Calculation -->
-          <ul class="list-group">
-            <li class="list-group-item">Total Income: <strong>$0</strong></li>
-            <li class="list-group-item">Total Dedictions: <strong>$0</strong></li>
-            <li class="list-group-item">Taxable Income: <strong>$0</strong></li>
-            <li class="list-group-item">Tax: <strong>$0</strong></li>
-          </ul>
-          <!-- End of Estimated Tax Calculation -->
-
-          &nbsp;
 
           </div>
 
@@ -195,17 +161,32 @@
         <!-- Start of Data Display column -->
         <div class="column">
 
-          <div class="col-xs-6" align="center" style="text-align:center">
-            <h2 align="center">
+          <div class="col-xs-6" align="left" style="text-align:left">
+            <h2 align="left">
                Federal Tax Summary
             </h2>
+
             &nbsp;
-            <div>Percentage and Tax Bracket summary of Federal Form 1040, based on current rates.</div>
-            &nbsp;
+
           </div>
+
+          <!-- Estimated Tax Inforation Display -->
+          <div class="form-group">
+            <div class="col-xs-6">
+              <ul class="list-group">
+                <li class="list-group-item">Total Income: <strong>$0</strong></li>
+                <li class="list-group-item">Total Dedictions: <strong>$0</strong></li>
+                <li class="list-group-item">Taxable Income: <strong>$0</strong></li>
+                <li class="list-group-item">Tax: <strong>$0</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          &nbsp;
 
           <!-- Display Pie Chart -->
           <div class="col-lg-6">
+
             <div class="widget-chart darker">
               <div class="widget-chart-content">
                 <h4 class="chart-title">
@@ -215,19 +196,12 @@
                   <div class="vis percentage"></div>
               </div>
             </div>
-          </div>
 
-          <!-- Display Horiztonal Bar Graph -->
-          <div class="col-lg-6">
-            <div class="widget-chart darker">
-              <div class="widget-chart-content">
-                <h4 class="chart-title">
-                  Federal Tax Bracket
-                  <small>Visualization of Tax Bracket</small>
-                </h4>
-                  <div class="vis bracket"></div> <!-- NEED TO CREATE -->
-              </div>
+            <!-- Calculate Tax Alert -->
+            <div class="alert alert-info" role="alert">
+              The estimated calculation of tax computes amounts owed based on current Income Tax Rates, and does not take into effect special rates for Long Term Capital Gains, Qualified Dividends, nor additional taxes such as the Net Investment Income tax or Alternative Minimum Tax. The results of the calculator do not guarantee your final tax liability.
             </div>
+
           </div>
 
         </div> <!-- End of Data Display column -->
