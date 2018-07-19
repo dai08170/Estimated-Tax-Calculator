@@ -2,7 +2,7 @@
 
 Estimated Tax Calculator for individuals filing Form 1040, U.S. Individual Income Tax Return. This calculator should be used to estimate quarterly Federal income tax payments, based on [Current Tax Rate Schedules](https://www.irs.gov/pub/irs-pdf/f1040es.pdf).
 
-![Dashboard](https://github.com/JohnnyUtah/Estimated-Tax-Calculator/blob/master/index.png)
+![Dashboard](https://github.com/JohnnyUtah/Estimated-Tax-Calculator/blob/master/landing.png)
 
 ## Calculation
 
