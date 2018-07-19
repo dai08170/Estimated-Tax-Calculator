@@ -57,6 +57,16 @@ function pieCalculator() {
 
   // Calcualte Tax
   var form1040line44 = calculateTax(filingStatus, form1040line43);  // Tax: Numerator of Pie Percentage
+  // Calcualte Self Employment Tax
+  var SelfEmploymentTax = 0;
+  if (form1040line12 <= 128400) // Self-Employment Limit for 2018
+  {
+    SelfEmploymentTax = form1040line12 * .153;;
+  }
+  else {
+    SelfEmploymentTax = (form1040line12 * .029) + 15921.50; // Self-Employment Tax Maximum for 2018
+  }
+  form1040line44 = form1040line44 + SelfEmploymentTax; // Add Self Employment Tax
 
   // Calcualte Tax Figures as Percentages of Income
   var RemainingIncome = Math.round( (form1040line43/form1040line22) * 100 ) - Math.round( (form1040line44/form1040line22) * 100 );

@@ -1,5 +1,5 @@
 /*
-    Calculates Federal Income Tax for Individuals for the 2015 year (Form 1040, Line 44)
+    Calculates Federal Income Tax for Individuals for the 2018 year (Form 1040, Line 44)
     with Filing Status (Lines 1-5) and Taxable Income (Line 43) as parameters.
     This is a simple calcualtion using tax brackets and does not consider
     certian capital gain and other income subject to special tax rates.
@@ -14,38 +14,38 @@ switch(filingStatus) {
     // Single
     case "Single":
         /*
-        Single Tax Rates (2015):
-        10% on taxable income from $0 to $9,225,
-        15% on taxable income from $9,226 to $37,450, plus $922.50
-        25% on taxable income from $37,451 to $90,750, plus $5,156.25
-        28% on taxable income from $90,751 to $189,300, plus $18,481.25
-        33% on taxable income from $189,301 to $411,500, plus $46,075.25
-        35% on taxable income from $411,501 to $413,200, plus $119,401.25
-        39.6% on taxable income from $413,201 or higher, plus $119,996.25
+        Single Tax Rates (2018):
+        10% on taxable income from $0 to $9,525,
+        12% on taxable income from $9,226 to $37,700, plus $922.50
+        22% on taxable income from $37,700 to $82,500, plus $4,453.50
+        24% on taxable income from $82,500 to $157,500 plus $14,089.50
+        32% on taxable income from $157,500 to $200,000, plus $32,089.50
+        35% on taxable income from $200,000 to $500,000, plus $45,689.50
+        37% on taxable income from $500,00 or higher, plus $150,689.50
         */
         if(taxableIncome <= 0){
           tax = 0;
         }
-        else if (taxableIncome > 0 && taxableIncome <= 9225) {
+        else if (taxableIncome > 0 && taxableIncome <= 9525) {
           tax = taxableIncome * 0.10;
         }
-        else if (taxableIncome > 9225 && taxableIncome <= 37450) {
-          tax = (taxableIncome - 9225) * 0.15 + 922.50;
+        else if (taxableIncome > 9525 && taxableIncome <= 37700) {
+          tax = (taxableIncome - 9525) * 0.12 + 922.50;
         }
-        else if (taxableIncome > 37450 && taxableIncome <= 90750) {
-          tax = (taxableIncome - 37450) * 0.25 + 5156.25;
+        else if (taxableIncome > 37700 && taxableIncome <= 82500) {
+          tax = (taxableIncome - 37700) * 0.22 + 4453.50;
         }
-        else if (taxableIncome > 90750 && taxableIncome <= 189300) {
-          tax = (taxableIncome - 90750) * 0.28 + 18481.25;
+        else if (taxableIncome > 82500 && taxableIncome <= 157500) {
+          tax = (taxableIncome - 82500) * 0.24 + 14,089.50;
         }
-        else if (taxableIncome > 189300 && taxableIncome <= 411500) {
-          tax = (taxableIncome - 189300) * 0.33 + 46075.25;
+        else if (taxableIncome > 157500 && taxableIncome <= 200000) {
+          tax = (taxableIncome - 157500) * 0.32 + 32089.50;
         }
-        else if (taxableIncome > 411500 && taxableIncome <= 413200) {
-          tax = (taxableIncome - 411500) * 0.35 + 119401.25;
+        else if (taxableIncome > 200000 && taxableIncome <= 500000) {
+          tax = (taxableIncome - 200000) * 0.35 + 45689.50;
         }
-        else if (taxableIncome > 413200) {
-          tax = (taxableIncome - 413200) * 0.396 + 119996.25;
+        else if (taxableIncome > 500000) {
+          tax = (taxableIncome - 500000) * 0.37 + 150689.50;
         }
         else {
           tax = undefined; // Taxable Income or Filing Status Error
@@ -55,7 +55,7 @@ switch(filingStatus) {
     // Married Filing Joint
     case "MFJ":
         /*
-        Married Filing Joint Tax Rates (2015):
+        Married Filing Joint Tax Rates (2018):
         10% on taxable income from $0 to $18,450,
         15% on taxable income from $18,451 to $74,900, plus $1,845
         25% on taxable income from $74,901 to $151,200, plus $10,312.50
@@ -96,7 +96,7 @@ switch(filingStatus) {
     // Married Filing Separately
     case "MFS":
         /*
-        Married Filing Separately Tax Rates (2015):
+        Married Filing Separately Tax Rates (2018):
         10% on taxable income from $0 to $9,225,
         15% on taxable income from $9,226 to $37,450, plus $922.50
         25% on taxable income from $37,451 to $75,600, plus $5,156.25
@@ -176,7 +176,7 @@ switch(filingStatus) {
 
     case "QW": // Qualified Widow Same Tax Rates as MFJ
         /*
-        Qualifying Widower Tax Rates (2015) [Same as Married Filing Joint]:
+        Qualifying Widower Tax Rates (2018) [Same as Married Filing Joint]:
         10% on taxable income from $0 to $18,450,
         15% on taxable income from $18,451 to $74,900, plus $1,845
         25% on taxable income from $74,901 to $151,200, plus $10,312.50
