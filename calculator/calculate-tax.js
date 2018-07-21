@@ -16,7 +16,7 @@ switch(filingStatus) {
         /*
         Single Tax Rates (2018):
         10% on taxable income from $0 to $9,525,
-        12% on taxable income from $9,226 to $37,700, plus $922.50
+        12% on taxable income from $9,525 to $38,700, plus $952.50
         22% on taxable income from $37,700 to $82,500, plus $4,453.50
         24% on taxable income from $82,500 to $157,500 plus $14,089.50
         32% on taxable income from $157,500 to $200,000, plus $32,089.50
@@ -29,14 +29,14 @@ switch(filingStatus) {
         else if (taxableIncome > 0 && taxableIncome <= 9525) {
           tax = taxableIncome * 0.10;
         }
-        else if (taxableIncome > 9525 && taxableIncome <= 37700) {
-          tax = (taxableIncome - 9525) * 0.12 + 922.50;
+        else if (taxableIncome > 9525 && taxableIncome <= 38700) {
+          tax = (taxableIncome - 9525) * 0.12 + 952.50;
         }
         else if (taxableIncome > 37700 && taxableIncome <= 82500) {
           tax = (taxableIncome - 37700) * 0.22 + 4453.50;
         }
         else if (taxableIncome > 82500 && taxableIncome <= 157500) {
-          tax = (taxableIncome - 82500) * 0.24 + 14,089.50;
+          tax = (taxableIncome - 82500) * 0.24 + 14089.50;
         }
         else if (taxableIncome > 157500 && taxableIncome <= 200000) {
           tax = (taxableIncome - 157500) * 0.32 + 32089.50;
@@ -56,37 +56,37 @@ switch(filingStatus) {
     case "MFJ":
         /*
         Married Filing Joint Tax Rates (2018):
-        10% on taxable income from $0 to $18,450,
-        15% on taxable income from $18,451 to $74,900, plus $1,845
-        25% on taxable income from $74,901 to $151,200, plus $10,312.50
-        28% on taxable income from $151,201 to $230,450, plus $29,387.50
-        33% on taxable income from $231,451 to $411,500, plus $51,577.50
-        35% on taxable income from $411,501 to $464,850, plus $111,324
-        39.6% on taxable income from $464,851 or higher, plus $129,996.50
+        10% on taxable income from $0 to $19,050,
+        12% on taxable income from $19,050 to $77,400, plus $1,905
+        22% on taxable income from $77,400 to $165,000, plus $8,907
+        24% on taxable income from $165,000 to $315,000, plus $28,179
+        32% on taxable income from $315,000 to $400,000, plus $64,179
+        35% on taxable income from $400,000 to $600,000, plus $91,379
+        37% on taxable income from $600,000 or higher, plus $161,379
         */
         if(taxableIncome <= 0){
           tax = 0;
         }
-        else if (taxableIncome > 0 && taxableIncome <= 18450) {
+        else if (taxableIncome > 0 && taxableIncome <= 19050) {
           tax = taxableIncome * 0.10;
         }
-        else if (taxableIncome > 18450 && taxableIncome <= 74900) {
-          tax = (taxableIncome - 18450) * 0.15 + 1845;
+        else if (taxableIncome > 19050 && taxableIncome <= 77400) {
+          tax = (taxableIncome - 19050) * 0.12 + 1905;
         }
-        else if (taxableIncome > 74900 && taxableIncome <= 151200) {
-          tax = (taxableIncome - 74900) * 0.25 + 10312.50;
+        else if (taxableIncome > 77400 && taxableIncome <= 165000) {
+          tax = (taxableIncome - 77400) * 0.22 + 8907;
         }
-        else if (taxableIncome > 151200 && taxableIncome <= 230450) {
-          tax = (taxableIncome - 151200) * 0.28 + 29387.50;
+        else if (taxableIncome > 165000 && taxableIncome <= 315000) {
+          tax = (taxableIncome - 165000) * 0.24 + 28179;
         }
-        else if (taxableIncome > 230450 && taxableIncome <= 411500) {
-          tax = (taxableIncome - 231450) * 0.33 + 51577.50;
+        else if (taxableIncome > 315000 && taxableIncome <= 400000) {
+          tax = (taxableIncome - 315000) * 0.32 + 64179;
         }
-        else if (taxableIncome > 411500 && taxableIncome <= 464850) {
-          tax = (taxableIncome - 411500) * 0.35 + 111324;
+        else if (taxableIncome > 400000 && taxableIncome <= 600000) {
+          tax = (taxableIncome - 400000) * 0.35 + 91379;
         }
-        else if (taxableIncome > 464850) {
-          tax = (taxableIncome - 464850) * 0.396 + 129996.50;
+        else if (taxableIncome > 600000) {
+          tax = (taxableIncome - 600000) * 0.37 + 161379;
         }
         else {
           tax = undefined; // Taxable Income or Filing Status Error
@@ -97,37 +97,37 @@ switch(filingStatus) {
     case "MFS":
         /*
         Married Filing Separately Tax Rates (2018):
-        10% on taxable income from $0 to $9,225,
-        15% on taxable income from $9,226 to $37,450, plus $922.50
-        25% on taxable income from $37,451 to $75,600, plus $5,156.25
-        28% on taxable income from $75,601 to $115,255, plus $14,693
-        33% on taxable income from $115,226 to $205,750, plus $25,788.75
-        35% on taxable income from $205,751 to $232,435, plus $55,562
-        39.6% on taxable income from $232,426 or higher, plus $64,998.25
+        10% on taxable income from $0 to $9,525,
+        12% on taxable income from $9,525 to $38,700, plus $952.50
+        22% on taxable income from $37,700 to $82,500, plus $4,453.50
+        24% on taxable income from $82,500 to $157,500 plus $14,089.50
+        32% on taxable income from $157,500 to $200,000, plus $32,089.50
+        35% on taxable income from $200,000 to $300,000, plus $45,689.50
+        37% on taxable income from $300,00 or higher, plus $80,689.50
         */
         if(taxableIncome <= 0){
           tax = 0;
         }
-        else if (taxableIncome > 0 && taxableIncome <= 9225) {
+        else if (taxableIncome > 0 && taxableIncome <= 9525) {
           tax = taxableIncome * 0.10;
         }
-        else if (taxableIncome > 9225 && taxableIncome <= 37450) {
-          tax = (taxableIncome - 9225) * 0.15 + 922.50;
+        else if (taxableIncome > 9525 && taxableIncome <= 37700) {
+          tax = (taxableIncome - 9525) * 0.12 + 952.50;
         }
-        else if (taxableIncome > 37450 && taxableIncome <= 75600) {
-          tax = (taxableIncome - 37450) * 0.25 + 5156.25;
+        else if (taxableIncome > 37700 && taxableIncome <= 82500) {
+          tax = (taxableIncome - 37700) * 0.22 + 4453.50;
         }
-        else if (taxableIncome > 75600 && taxableIncome <= 115255) {
-          tax = (taxableIncome - 75600) * 0.28 + 14693;
+        else if (taxableIncome > 82500 && taxableIncome <= 157500) {
+          tax = (taxableIncome - 82500) * 0.24 + 14089.50;
         }
-        else if (taxableIncome > 115255 && taxableIncome <= 205750) {
-          tax = (taxableIncome - 115255) * 0.33 + 25788.75;
+        else if (taxableIncome > 157500 && taxableIncome <= 200000) {
+          tax = (taxableIncome - 157500) * 0.32 + 32089.50;
         }
-        else if (taxableIncome > 205750 && taxableIncome <= 232435) {
-          tax = (taxableIncome - 205750) * 0.35 + 55562;
+        else if (taxableIncome > 200000 && taxableIncome <= 300000) {
+          tax = (taxableIncome - 200000) * 0.35 + 45689.50;
         }
-        else if (taxableIncome > 232435) {
-          tax = (taxableIncome - 232435) * 0.396 + 64998.25;
+        else if (taxableIncome > 300000) {
+          tax = (taxableIncome - 300000) * 0.37 + 80689.50;
         }
         else {
           tax = undefined; // Taxable Income or Filing Status Error
@@ -136,85 +136,88 @@ switch(filingStatus) {
 
     case "HoH": // Head of Household
         /*
-        Head of Household Tax Rates (2015):
-        10% on taxable income from $0 to $13,150,
-        15% on taxable income from $13,151 to $50,200, plus $1,315
-        25% on taxable income from $50,201 to $129,600, plus $6,872.50
-        28% on taxable income from $129,601 to $209,850, plus $26,772.50
-        33% on taxable income from $209,851 to $411,500, plus $49,192.50
-        35% on taxable income from $411,501 to $439,000, plus $115,737
-        39.6% on taxable income from $439,001 or higher, plus $125,362
+        Head of Household Tax Rates (2018):
+        10% on taxable income from $0 to $13,600,
+        12% on taxable income from $13,600 to $51,800, plus $1,360
+        22% on taxable income from $51,800 to $82,500, plus $5,944
+        24% on taxable income from $82,500 to $157,500, plus $12,698
+        32% on taxable income from $157,500 to $200,000, plus $30,698
+        35% on taxable income from $200,000 to $500,000, plus $44,298
+        37% on taxable income from $500,000 or higher, plus $149,298
         */
         if(taxableIncome <= 0){
           tax = 0;
         }
-        else if (taxableIncome > 0 && taxableIncome <= 13150) {
+        else if (taxableIncome > 0 && taxableIncome <= 13600) {
           tax = taxableIncome * 0.10;
         }
-        else if (taxableIncome > 13150 && taxableIncome <= 50200) {
-          tax = (taxableIncome - 13150) * 0.15 + 1315;
+        else if (taxableIncome > 13600 && taxableIncome <= 51800) {
+          tax = (taxableIncome - 13600) * 0.12 + 1360;
         }
-        else if (taxableIncome > 50200 && taxableIncome <= 129600) {
-          tax = (taxableIncome - 50200) * 0.25 + 6872.50;
+        else if (taxableIncome > 51800 && taxableIncome <= 82500) {
+          tax = (taxableIncome - 51800) * 0.22 + 5944;
         }
-        else if (taxableIncome > 129600 && taxableIncome <= 209850) {
-          tax = (taxableIncome - 129600) * 0.28 + 26772.50;
+        else if (taxableIncome > 82500 && taxableIncome <= 157500) {
+          tax = (taxableIncome - 82500) * 0.24 + 12698;
         }
-        else if (taxableIncome > 209850 && taxableIncome <= 411500) {
-          tax = (taxableIncome - 209850) * 0.33 + 49192.50;
+        else if (taxableIncome > 157500 && taxableIncome <= 200000) {
+          tax = (taxableIncome - 157500) * 0.32 + 30698;
         }
-        else if (taxableIncome > 411500 && taxableIncome <= 439000) {
-          tax = (taxableIncome - 411500) * 0.35 + 115737;
+        else if (taxableIncome > 200000 && taxableIncome <= 500000) {
+          tax = (taxableIncome - 200000) * 0.35 + 44298;
         }
-        else if (taxableIncome > 439000) {
-          tax = (taxableIncome - 439000) * 0.396 + 125362;
+        else if (taxableIncome > 500000) {
+          tax = (taxableIncome - 500000) * 0.37 + 149298;
         }
         else {
           tax = undefined; // Taxable Income or Filing Status Error
         }
         break;
 
-    case "QW": // Qualified Widow Same Tax Rates as MFJ
+    // Qualified Widow(er)
+    case "QW":
         /*
-        Qualifying Widower Tax Rates (2018) [Same as Married Filing Joint]:
-        10% on taxable income from $0 to $18,450,
-        15% on taxable income from $18,451 to $74,900, plus $1,845
-        25% on taxable income from $74,901 to $151,200, plus $10,312.50
-        28% on taxable income from $151,201 to $230,450, plus $29,387.50
-        33% on taxable income from $231,451 to $411,500, plus $51,577.50
-        35% on taxable income from $411,501 to $464,850, plus $111,324
-        39.6% on taxable income from $464,851 or higher, plus $129,996.50
+        Qualified Widow(er) Tax Rates (2018): [Same as Married Filing Joint]
+        10% on taxable income from $0 to $19,050,
+        12% on taxable income from $19,050 to $77,400, plus $1,905
+        22% on taxable income from $77,400 to $165,000, plus $8,907
+        24% on taxable income from $165,000 to $315,000, plus $28,179
+        32% on taxable income from $315,000 to $400,000, plus $64,179
+        35% on taxable income from $400,000 to $600,000, plus $91,379
+        37% on taxable income from $600,000 or higher, plus $161,379
         */
         if(taxableIncome <= 0){
           tax = 0;
         }
-        else if (taxableIncome > 0 && taxableIncome <= 18450) {
+        else if (taxableIncome > 0 && taxableIncome <= 19050) {
           tax = taxableIncome * 0.10;
         }
-        else if (taxableIncome > 18450 && taxableIncome <= 74900) {
-          tax = (taxableIncome - 18450) * 0.15 + 1845;
+        else if (taxableIncome > 19050 && taxableIncome <= 77400) {
+          tax = (taxableIncome - 19050) * 0.12 + 1905;
         }
-        else if (taxableIncome > 74900 && taxableIncome <= 151200) {
-          tax = (taxableIncome - 74900) * 0.25 + 10312.50;
+        else if (taxableIncome > 77400 && taxableIncome <= 165000) {
+          tax = (taxableIncome - 77400) * 0.22 + 8907;
         }
-        else if (taxableIncome > 151200 && taxableIncome <= 230450) {
-          tax = (taxableIncome - 151200) * 0.28 + 29387.50;
+        else if (taxableIncome > 165000 && taxableIncome <= 315000) {
+          tax = (taxableIncome - 165000) * 0.24 + 28179;
         }
-        else if (taxableIncome > 230450 && taxableIncome <= 411500) {
-          tax = (taxableIncome - 231450) * 0.33 + 51577.50;
+        else if (taxableIncome > 315000 && taxableIncome <= 400000) {
+          tax = (taxableIncome - 315000) * 0.32 + 64179;
         }
-        else if (taxableIncome > 411500 && taxableIncome <= 464850) {
-          tax = (taxableIncome - 411500) * 0.35 + 111324;
+        else if (taxableIncome > 400000 && taxableIncome <= 600000) {
+          tax = (taxableIncome - 400000) * 0.35 + 91379;
         }
-        else if (taxableIncome > 464850) {
-          tax = (taxableIncome - 464850) * 0.396 + 129996.50;
+        else if (taxableIncome > 600000) {
+          tax = (taxableIncome - 600000) * 0.37 + 161379;
         }
         else {
           tax = undefined; // Taxable Income or Filing Status Error
         }
         break;
+
+    // Filing Status Error
     default:
-        tax = undefined; // Filing Status Error
+        tax = undefined;
 }
 
 return tax;
