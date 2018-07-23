@@ -11,7 +11,7 @@ body {
     font-family: "Open Sans";
 }
 
-@media(min-width:768px) {
+@media(max-width:768px) {
     body {
         margin-top: 50px;
     }
@@ -188,4 +188,8 @@ body {
 .widget-chart .widget-chart-content {
     padding: 15px;
     /* margin-right:230px */
+}
+
+.navbar {
+    margin-bottom: 0px;
 }
